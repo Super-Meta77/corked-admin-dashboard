@@ -1,0 +1,162 @@
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .all-\[unset\] {
+    all: unset;
+  }
+}
+
+:root {
+  --16-font-16-strong-font-family: "Outfit", Helvetica;
+  --16-font-16-strong-font-size: 16px;
+  --16-font-16-strong-font-style: normal;
+  --16-font-16-strong-font-weight: 700;
+  --16-font-16-strong-letter-spacing: 0px;
+  --16-font-16-strong-line-height: 24px;
+  --16-font-medium-16-font-family: "Outfit", Helvetica;
+  --16-font-medium-16-font-size: 16px;
+  --16-font-medium-16-font-style: normal;
+  --16-font-medium-16-font-weight: 500;
+  --16-font-medium-16-letter-spacing: 0px;
+  --16-font-medium-16-line-height: 24px;
+  --app-primary: rgba(82, 17, 30, 1);
+  --basewhite: rgba(255, 255, 255, 1);
+  --bg: rgba(248, 245, 241, 1);
+  --body-textbody-color: rgba(33, 37, 41, 1);
+  --button-links-medium-16px-font-family: "Lato", Helvetica;
+  --button-links-medium-16px-font-size: 16px;
+  --button-links-medium-16px-font-style: normal;
+  --button-links-medium-16px-font-weight: 600;
+  --button-links-medium-16px-letter-spacing: 0px;
+  --button-links-medium-16px-line-height: 22px;
+  --button-links-small-14px-font-family: "Lato", Helvetica;
+  --button-links-small-14px-font-size: 14px;
+  --button-links-small-14px-font-style: normal;
+  --button-links-small-14px-font-weight: 600;
+  --button-links-small-14px-letter-spacing: 0px;
+  --button-links-small-14px-line-height: 20px;
+  --drop-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.04);
+  --graywhite: rgba(255, 255, 255, 1);
+  --heading-heading-3-font-family: "Outfit", Helvetica;
+  --heading-heading-3-font-size: 24px;
+  --heading-heading-3-font-style: normal;
+  --heading-heading-3-font-weight: 600;
+  --heading-heading-3-letter-spacing: 0px;
+  --heading-heading-3-line-height: 32px;
+  --highlight: rgba(214, 168, 92, 1);
+  --hitbox: rgba(255, 255, 255, 0.0);
+  --neutral-colorswhite: rgba(255, 255, 255, 1);
+  --primary-text: rgba(45, 45, 45, 1);
+  --secondary-text: rgba(234, 234, 234, 1);
+  --shadow:
+    0px 4.858668327331543px 11.105527877807617px 0px rgba(145, 142, 159, 0.1), 0px 20.128768920898438px 20.128768920898438px 0px rgba(
+      145,
+      142,
+      159,
+      0.09
+    ), 0px 45.810302734375px 27.069725036621094px 0px rgba(145, 142, 159, 0.05), 0px 81.20917510986328px 32.62248992919922px 0px rgba(
+      145,
+      142,
+      159,
+      0.01
+    ), 0px 126.32537841796875px 35.398868560791016px 0px rgba(145, 142, 159, 0);
+  --SM-12-SM-med-20-font-family: "Outfit", Helvetica;
+  --SM-12-SM-med-20-font-size: 12px;
+  --SM-12-SM-med-20-font-style: normal;
+  --SM-12-SM-med-20-font-weight: 500;
+  --SM-12-SM-med-20-letter-spacing: 0px;
+  --SM-12-SM-med-20-line-height: 20px;
+  --stroke: rgba(224, 225, 228, 1);
+  --themeprimary: rgba(13, 110, 253, 1);
+  --white: rgba(255, 255, 255, 1);
+  --x-100: rgba(15, 26, 42, 1);
+  --x-40: rgba(203, 212, 225, 1);
+  --x-50: rgba(148, 163, 184, 1);
+  --x-60: rgba(100, 116, 139, 1);
+  --x-70: rgba(71, 85, 105, 1);
+  --x-80: rgba(39, 54, 75, 1);
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+
+    --card: transparent;
+    --card-foreground: 222.2 47.4% 11.2%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 215 20.2% 65.1%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+
+    --muted: 223 47% 11%;
+    --muted-foreground: 215.4 16.3% 56.9%;
+
+    --accent: 216 34% 17%;
+    --accent-foreground: 210 40% 98%;
+
+    --popover: 224 71% 4%;
+    --popover-foreground: 215 20.2% 65.1%;
+
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+
+    --card: transparent;
+    --card-foreground: 213 31% 91%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 1.2%;
+
+    --secondary: 222.2 47.4% 11.2%;
+    --secondary-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 216 34% 17%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
