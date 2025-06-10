@@ -15,7 +15,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { TableCell } from "@/components/ui/table";
-import TableComponent from "@/components/custom/TableComponent";
+import TableComponent from "@/components/custom/CustomTableComponent";
 
 export const Dashboard = (): JSX.Element => {
   // Data for stats cards

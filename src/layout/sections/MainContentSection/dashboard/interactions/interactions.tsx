@@ -9,7 +9,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { TableCell } from "@/components/ui/table";
-import TableComponent from "@/components/custom/TableComponent";
+import TableComponent from "@/components/custom/CustomTableComponent";
 
 // User data for the logs table
 const userLogsData = [
