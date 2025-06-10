@@ -18,7 +18,6 @@ const userLogsData = [
     name: "Rachel Chu",
     jobTitle: "Contract work",
     avatar: "/nature-.png",
-    wine: "Cabernet Sauvignon",
     date: "3/4/16",
     lastActive: "10 min ago",
   },
@@ -27,7 +26,6 @@ const userLogsData = [
     name: "Robert Fox",
     jobTitle: "Contract work",
     avatar: "/nature--1.png",
-    wine: "Cabernet Sauvignon",
     date: "8/16/13",
     lastActive: "10 min ago",
   },
@@ -36,7 +34,6 @@ const userLogsData = [
     name: "Brooklyn Simmons",
     jobTitle: "Contract work",
     avatar: "/nature--2.png",
-    wine: "Cabernet Sauvignon",
     date: "6/21/19",
     lastActive: "10 min ago",
   },
@@ -45,7 +42,6 @@ const userLogsData = [
     name: "Jerome Bell",
     jobTitle: "Contract work",
     avatar: "/nature--3.png",
-    wine: "Cabernet Sauvignon",
     date: "10/6/13",
     lastActive: "10 min ago",
   },
@@ -54,7 +50,6 @@ const userLogsData = [
     name: "Ronald Richards",
     jobTitle: "Contract work",
     avatar: "/nature--4.png",
-    wine: "Cabernet Sauvignon",
     date: "3/4/16",
     lastActive: "10 min ago",
   },
@@ -70,11 +65,9 @@ const ratingData = [
 ];
 
 const columns = [
-  { label: "Name", className: "w-[100px]" },
-  { label: "Wine", className: "w-[100px]" },
-  { label: "Date", className: "w-[100px]" },
-  { label: "Last Active", className: "w-[100px]" },
-  { label: "Active", className: "w-[100px]" },
+  { label: "Name", className: "w-[200px]" },
+  { label: "Date", className: "w-[120px]" },
+  { label: "Last Active", className: "w-[120px]" },
 ];
 
 export const Interactions = (): JSX.Element => {
@@ -83,58 +76,51 @@ export const Interactions = (): JSX.Element => {
       <div className="flex flex-col items-start gap-3.5 w-full">
         <div className="flex items-start gap-4">
           <h2 className="font-['Outfit',Helvetica] font-semibold text-app-primary text-xl leading-8">
-            Users Logs
+            User Logs
           </h2>
         </div>
 
-        <Card className="flex flex-col w-full items-start relative shadow-shadow border border-[#e8e8e8] rounded-lg overflow-hidden">
-          <TableComponent
-            columns={columns}
-            data={userLogsData}
-            withCheckbox
-            renderRow={(item) => (
-              <>
-                <TableCell className="border-r border-[#e8e8e8] w-[150px] px-4 py-3">
-                  <div className="flex items-center gap-3">
-                    <Avatar className="w-10 h-10 overflow-hidden rounded-md">
-                      <img
-                        src={item.avatar}
-                        alt={item.name}
-                        className="w-full h-full object-cover"
-                      />
-                    </Avatar>
-                    <div>
-                      <div className="font-semibold text-[#101828] text-sm">
-                        {item.name}
+        <Card className="flex flex-col w-full items-start relative shadow-shadow border border-[#e8e8e8] rounded-lg overflow-hidden max-w-full">
+          <div className="overflow-x-auto w-full">
+            <TableComponent
+              columns={columns}
+              data={userLogsData}
+              withCheckbox
+              headerClassName="bg-[#F9F9F9] text-[#787878] text-sm font-medium"
+              cellClassName="text-[#101828]"
+              renderRow={(item) => (
+                <>
+                  <TableCell className="border-r border-[#e8e8e8] w-[200px] px-4 py-3">
+                    <div className="flex items-center gap-3">
+                      <Avatar className="w-10 h-10 overflow-hidden rounded-md">
+                        <img
+                          src={item.avatar}
+                          alt={item.name}
+                          className="w-full h-full object-cover"
+                        />
+                      </Avatar>
+                      <div>
+                        <div className="font-semibold text-[#101828] text-sm">
+                          {item.name}
+                        </div>
+                        <div className="text-xs text-[#989797]">
+                          {item.jobTitle}
+                        </div>
                       </div>
-                      <div className="text-xs text-[#989797]">{item.wine}</div>
                     </div>
-                  </div>
-                </TableCell>
+                  </TableCell>
 
-                <TableCell className="border-r border-[#e8e8e8] w-[200px] px-4 py-3 text-sm font-medium">
-                  {item.wine}
-                </TableCell>
+                  <TableCell className="border-r border-[#e8e8e8] w-[120px] px-4 py-3 text-sm font-medium">
+                    {item.date}
+                  </TableCell>
 
-                <TableCell className="border-r border-[#e8e8e8] w-[200px] px-4 py-3 text-sm font-medium">
-                  {item.date}
-                </TableCell>
-
-                <TableCell className="border-r border-[#e8e8e8] w-[145px] px-4 py-3 text-sm font-medium text-[#52111e]">
-                  {item.lastActive}
-                </TableCell>
-
-                <TableCell className="w-[145px] px-4 py-3 text-sm font-medium text-[#52111e]">
-                  <Button
-                    variant="outline"
-                    className="px-3 py-1 text-sm font-medium text-[#52111e] border border-[#52111e] rounded-md hover:bg-[#fdf2f4]"
-                  >
-                    Reply to Log
-                  </Button>
-                </TableCell>
-              </>
-            )}
-          />
+                  <TableCell className="w-[120px] px-4 py-3 text-sm font-medium text-[#52111e]">
+                    {item.lastActive}
+                  </TableCell>
+                </>
+              )}
+            />
+          </div>
         </Card>
       </div>
 
@@ -143,11 +129,11 @@ export const Interactions = (): JSX.Element => {
           <div className="flex items-center justify-between w-full">
             <div className="inline-flex items-center justify-center gap-2.5 pt-0 pb-[3px] border-b border-black">
               <span className="font-['Outfit',Helvetica] font-medium text-app-primary text-sm">
-                Customer Reviews
+                Peoples Review
               </span>
             </div>
 
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 flex-wrap">
               <Select>
                 <SelectTrigger className="w-[140px] px-3 py-2 border border-gray-300 bg-white text-sm font-medium rounded-md shadow-sm hover:bg-gray-50 focus:ring-1 focus:ring-gray-200">
                   <div className="flex items-center gap-2">
@@ -177,33 +163,9 @@ export const Interactions = (): JSX.Element => {
                 </SelectContent>
               </Select>
             </div>
-
-            {/* <div className="flex items-center gap-4">
-              <Button
-                variant="outline"
-                className="h-[38px] gap-2 px-3 py-1.5 bg-hitbox rounded-lg border-[#dbdbdb]"
-              >
-                <img className="w-5 h-5" alt="Icon" src="/icon-3.svg" />
-                <span className="font-['Lato',Helvetica] font-bold text-primary-text text-sm">
-                  Filter by
-                </span>
-                <img className="w-5 h-5" alt="Icon" src="/icon-2.svg" />
-              </Button>
-
-              <Button
-                variant="outline"
-                className="h-[38px] gap-2 px-3 py-1.5 bg-hitbox rounded-lg border-[#dbdbdb]"
-              >
-                <img className="w-5 h-5" alt="Icon" src="/icon-3.svg" />
-                <span className="font-['Lato',Helvetica] font-bold text-primary-text text-sm">
-                  Sort by
-                </span>
-                <img className="w-5 h-5" alt="Icon" src="/icon-2.svg" />
-              </Button>
-            </div> */}
           </div>
 
-          <div className="flex items-center gap-[81px] mt-2">
+          <div className="flex flex-col md:flex-row md:gap-[81px] mt-2">
             <div className="flex flex-col w-[148px] h-[134px] items-start gap-4">
               <div className="font-['Outfit',Helvetica] font-semibold text-primary-text text-[32px] leading-5">
                 4.7
@@ -246,10 +208,22 @@ export const Interactions = (): JSX.Element => {
                   ))}
                 </div>
 
-                <div className="absolute w-[299px] h-[50px] top-0 left-0">
-                  <div className="absolute w-[299px] h-1.5 top-0 left-0 bg-highlight rounded-lg" />
-                  <div className="absolute w-[100px] h-1.5 top-[22px] left-0 bg-highlight rounded-lg" />
-                  <div className="absolute w-3.5 h-1.5 top-11 left-0 bg-highlight rounded-lg" />
+                <div className="absolute w-[351px] h-[94px] top-0 left-0">
+                  {ratingData.map((rating) => (
+                    <div
+                      key={rating.stars}
+                      className="absolute h-1.5 bg-highlight rounded-lg"
+                      style={{
+                        width: `${
+                          (rating.count /
+                            Math.max(...ratingData.map((r) => r.count))) *
+                          100
+                        }%`,
+                        top: `${(5 - rating.stars) * 22}px`,
+                        left: 0,
+                      }}
+                    />
+                  ))}
                 </div>
               </div>
 
@@ -275,17 +249,17 @@ export const Interactions = (): JSX.Element => {
       <Card className="w-full bg-white border-[#e0e1e4] shadow-shadow">
         <CardContent className="flex flex-col px-[25px] py-5 gap-3">
           <div className="flex items-center gap-3">
-            <Avatar className="w-9 h-9 bg-[#dcdfff] text-[#5465ff]">
+            <Avatar className="w-9 h-9 bg-white text-[#5465ff]">
               <AvatarFallback className="font-text-sm-semibold">
                 AK
               </AvatarFallback>
             </Avatar>
-            <span className="font-['Outfit',Helvetica] font-medium text-gsfdark-blue text-sm text-center leading-[18px] whitespace-nowrap">
+            <span className="font-['Outfit',Helvetica] font-medium text-black text-sm text-center leading-[18px] whitespace-nowrap">
               Alex K.
             </span>
           </div>
 
-          <div className="font-['Outfit',Helvetica] font-semibold text-primarydark-grey text-xs leading-5 whitespace-nowrap">
+          <div className="font-['Outfit',Helvetica] font-semibold text-black text-xs leading-5 whitespace-nowrap">
             Jan 20, 2024
           </div>
 
@@ -295,11 +269,11 @@ export const Interactions = (): JSX.Element => {
             ))}
           </div>
 
-          <div className="font-['Outfit',Helvetica] font-semibold text-primarydark-grey text-sm leading-5 whitespace-nowrap">
+          <div className="font-['Outfit',Helvetica] font-semibold text-black text-sm leading-5 whitespace-nowrap">
             Senior Analyst
           </div>
 
-          <p className="font-['Outfit',Helvetica] font-normal text-gsfdark-blue text-sm leading-[18px]">
+          <p className="font-['Outfit',Helvetica] font-normal text-black text-sm leading-[18px]">
             Working at Sam.AI has been an incredible journey so far. The
             technology we're building is truly cutting-edge, and being a part of
             a team that's revolutionizing how people achieve their goals is

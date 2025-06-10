@@ -19,6 +19,8 @@ interface TableComponentProps<T> {
   data: T[];
   withCheckbox?: boolean;
   renderRow: (item: T) => React.ReactNode;
+  headerClassName?: string;
+  cellClassName?: string;
 }
 
 const TableComponent = <T extends { id: number }>({
@@ -26,10 +28,12 @@ const TableComponent = <T extends { id: number }>({
   data,
   withCheckbox = false,
   renderRow,
+  headerClassName,
+  cellClassName,
 }: TableComponentProps<T>) => {
   return (
     <Table>
-      <TableHeader>
+      <TableHeader className={headerClassName}>
         <TableRow>
           {withCheckbox && (
             <TableHead className="w-[50px]">
@@ -47,7 +51,7 @@ const TableComponent = <T extends { id: number }>({
         {data.map((item) => (
           <TableRow key={item.id}>
             {withCheckbox && (
-              <TableCell className="w-[50px]">
+              <TableCell className={`w-[50px] ${cellClassName}`}>
                 <Checkbox />
               </TableCell>
             )}

@@ -1,6 +1,8 @@
 import { NavLink } from "react-router-dom";
 import { cn } from "@/lib/utils";
 
+interface SideNavBarSectionProps {}
+
 const navItems = [
   {
     icon: "/mask-group-dark.png",
@@ -34,7 +36,7 @@ const navItems = [
   },
 ];
 
-export const SideNavBarSection = () => {
+export const SideNavBarSection = ({}: SideNavBarSectionProps) => {
   return (
     <nav className="h-full flex flex-col bg-app-primary border-r border-[#e0e1e4] shadow-[0px_0px_1px_#00000017,0px_0px_1px_#0000000d,0px_0px_1px_#00000003,0px_0px_1px_transparent]">
       <div className="flex flex-col items-center gap-5 py-2.5 px-2.5">

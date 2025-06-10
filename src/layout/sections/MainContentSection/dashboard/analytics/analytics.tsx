@@ -69,16 +69,16 @@ export const Analytics = (): JSX.Element => {
   const benchmarkYAxis = ["120", "100", "80", "60", "40", "20", "0"];
 
   return (
-    <section className="flex flex-col w-full items-start justify-center gap-6 pt-5 pb-[46px] px-5 bg-[#ffffff] rounded-lg shadow-shadow">
+    <section className="flex flex-col w-full items-start justify-center gap-6 py-5 px-4 md:px-5 bg-[#ffffff] rounded-lg shadow-shadow">
       <header className="flex items-center gap-2.5 relative self-stretch w-full">
         <h1 className="relative w-fit mt-[-1.00px] [font-family:'Outfit',Helvetica] font-semibold text-app-primary text-xl tracking-[0] leading-[normal]">
           Analytics &amp; Benchmark
         </h1>
       </header>
 
-      <div className="flex items-start gap-[22px] w-full">
+      <div className="flex flex-col lg:flex-row items-start gap-[22px] w-full">
         {/* Analytics Card */}
-        <Card className="flex-1 border-[#e0e1e4] shadow-shadow">
+        <Card className="flex-1 w-full border-[#e0e1e4] shadow-shadow">
           <CardContent className="p-7">
             <div className="flex flex-col w-full justify-center gap-6 items-start">
               <div className="flex flex-col justify-center gap-2.5 self-stretch w-full items-start">
@@ -87,9 +87,9 @@ export const Analytics = (): JSX.Element => {
                     Analytics
                   </h2>
 
-                  <div className="flex items-center gap-3 justify-between">
+                  <div className="flex flex-col md:flex-row items-center gap-3 justify-between">
                     <Select defaultValue="Logs Over Time">
-                      <SelectTrigger className="w-[150px] h-[38px] bg-basewhite border border-solid border-[#dbdbdb] shadow-drop-shadow">
+                      <SelectTrigger className="w-full md:w-[150px] h-[38px] bg-basewhite border border-solid border-[#dbdbdb] shadow-drop-shadow">
                         <SelectValue placeholder="Select period" />
                       </SelectTrigger>
                       <SelectContent>
@@ -115,7 +115,7 @@ export const Analytics = (): JSX.Element => {
                     </Select>
 
                     <Select defaultValue="last7days">
-                      <SelectTrigger className="w-[125px] h-[38px] bg-basewhite border border-solid border-[#dbdbdb] shadow-drop-shadow">
+                      <SelectTrigger className="w-full md:w-[125px] h-[38px] bg-basewhite border border-solid border-[#dbdbdb] shadow-drop-shadow">
                         <SelectValue placeholder="Select period" />
                       </SelectTrigger>
                       <SelectContent>
@@ -146,16 +146,16 @@ export const Analytics = (): JSX.Element => {
                 </div>
 
                 {/* Chart area */}
-                <div className="absolute w-[601px] h-[235px] top-0 left-[50px]">
+                <div className="absolute w-full h-[235px] top-0 left-[50px] md:left-[50px]">
                   {/* Grid lines */}
                   <img
-                    className="absolute w-[576px] h-[209px] top-0 left-0"
+                    className="absolute w-full h-[209px] top-0 left-0"
                     alt="Grid lines"
                     src="/grid-lines.png"
                   />
 
                   {/* X-axis labels */}
-                  <div className="absolute w-[601px] h-[34px] top-[201px] left-0">
+                  <div className="absolute w-full h-[34px] top-[201px] left-0">
                     {months.map((month, index) => (
                       <div
                         key={`month-${index}`}
@@ -170,7 +170,7 @@ export const Analytics = (): JSX.Element => {
                       </div>
                     ))}
                     <img
-                      className="absolute w-[576px] h-px -top-px left-0"
+                      className="absolute w-full h-px -top-px left-0"
                       alt="Axis line"
                       src="/axis-line.svg"
                     />
@@ -178,17 +178,17 @@ export const Analytics = (): JSX.Element => {
 
                   {/* Chart lines */}
                   <img
-                    className="absolute w-[543px] h-[130px] top-[21px] left-[21px]"
+                    className="absolute w-[calc(100%-71px)] h-[130px] top-[21px] left-[21px] object-fill"
                     alt="Series graph"
                     src="/series-3-graph.png"
                   />
                   <img
-                    className="absolute w-[542px] h-[200px] top-0 left-[21px]"
+                    className="absolute w-[calc(100%-72px)] h-[200px] top-0 left-[21px] object-fill"
                     alt="Series"
                     src="/series-2.png"
                   />
                   <img
-                    className="absolute w-[542px] h-[105px] top-[97px] left-[21px]"
+                    className="absolute w-[calc(100%-72px)] h-[105px] top-[97px] left-[21px] object-fill"
                     alt="Series graph"
                     src="/series-1-graph.png"
                   />
@@ -196,13 +196,13 @@ export const Analytics = (): JSX.Element => {
               </div>
 
               {/* Metrics Cards */}
-              <div className="flex items-center justify-center gap-[13px] w-full">
+              <div className="flex flex-wrap items-center justify-center gap-1 md:gap-10 w-full">
                 {analyticsMetrics.map((metric) => (
                   <Card
                     key={`metric-${metric.id}`}
-                    className="flex-1 h-16 border-[#f2f2f2] bg-basewhite"
+                    className="flex-1 w-full sm:w-[calc(50%-7px)] lg:w-[calc(33.333%-9px)] h-[80px] border-[#f2f2f2] bg-basewhite"
                   >
-                    <CardContent className="flex flex-col items-start justify-center gap-[9px] p-3">
+                    <CardContent className="flex flex-col items-start justify-between gap-0 md:gap-[10px] pl-4 pr-4 pt-2 pb-2">
                       <div className="flex items-center gap-[9px]">
                         <div
                           className={`w-1.5 h-1.5 ${metric.color} rounded-[3px]`}
@@ -236,16 +236,16 @@ export const Analytics = (): JSX.Element => {
         </Card>
 
         {/* Insights Card */}
-        <Card className="w-[400px] border-[#e0e1e4] shadow-shadow">
+        <Card className="w-full lg:w-[400px] border-[#e0e1e4] shadow-shadow">
           <CardContent className="p-7">
-            <div className="flex flex-col w-80 items-start gap-2">
+            <div className="flex flex-col w-full items-start gap-2">
               <h2 className="relative w-fit mt-[-1.00px] [font-family:'Outfit',Helvetica] font-semibold text-app-primary text-xl tracking-[0] leading-8 whitespace-nowrap">
                 Insights
               </h2>
 
-              <div className="flex items-start gap-3">
+              <div className="flex flex-col md:flex-row items-start gap-3 w-full">
                 <Select defaultValue="Most Engaged Customers">
-                  <SelectTrigger className="w-[210px] h-[38px] bg-basewhite border border-solid border-[#dbdbdb] shadow-drop-shadow">
+                  <SelectTrigger className="w-full md:w-[210px] h-[38px] bg-basewhite border border-solid border-[#dbdbdb] shadow-drop-shadow">
                     <SelectValue placeholder="Select period" />
                   </SelectTrigger>
                   <SelectContent>
@@ -268,7 +268,7 @@ export const Analytics = (): JSX.Element => {
                 </Select>
 
                 <Select defaultValue="last7days">
-                  <SelectTrigger className="w-[125px] h-[38px] bg-basewhite border border-solid border-[#dbdbdb] shadow-drop-shadow">
+                  <SelectTrigger className="w-full md:w-[125px] h-[38px] bg-basewhite border border-solid border-[#dbdbdb] shadow-drop-shadow">
                     <SelectValue placeholder="Select period" />
                   </SelectTrigger>
                   <SelectContent>
@@ -282,7 +282,7 @@ export const Analytics = (): JSX.Element => {
 
             <div className="flex flex-col items-start gap-[33px] mt-4">
               {/* Insights Chart */}
-              <div className="relative w-[306.96px] h-[204px]">
+              <div className="relative w-full h-[204px]">
                 {/* Y-axis labels */}
                 <div className="flex flex-col w-[26px] h-[178px] items-start gap-[64.23px] absolute top-0 left-0">
                   {insightsYAxis.map((value, index) => (
@@ -296,7 +296,7 @@ export const Analytics = (): JSX.Element => {
                 </div>
 
                 {/* X-axis labels */}
-                <div className="flex w-[204px] h-4 items-center gap-[36.52px] absolute top-[188px] left-[69px]">
+                <div className="flex w-full justify-between items-center gap-[36.52px] absolute top-[188px] left-[69px]">
                   {insightsDays.map((day, index) => (
                     <div
                       key={`insight-x-${index}`}
@@ -308,9 +308,9 @@ export const Analytics = (): JSX.Element => {
                 </div>
 
                 {/* Chart area */}
-                <div className="absolute w-[275px] h-[159px] top-[7px] left-8">
+                <div className="absolute w-[calc(100%-55px)] h-[159px] top-[7px] left-8">
                   {/* Horizontal lines */}
-                  <div className="flex flex-col w-[275px] h-[159px] items-start gap-[79.34px] absolute top-0 left-0">
+                  <div className="flex flex-col w-full h-[159px] items-start gap-[79.34px] absolute top-0 left-0">
                     {[0, 1, 2].map((index) => (
                       <img
                         key={`line-${index}`}
@@ -322,7 +322,7 @@ export const Analytics = (): JSX.Element => {
                   </div>
 
                   {/* Bar charts */}
-                  <div className="flex w-[216px] h-[110px] items-end gap-[36.52px] absolute top-12 left-[41px]">
+                  <div className="flex w-full h-[110px] items-end justify-between absolute top-12 left-[41px]">
                     {[0, 1, 2, 3, 4].map((index) => (
                       <div
                         key={`bar-group-${index}`}
@@ -337,7 +337,7 @@ export const Analytics = (): JSX.Element => {
               </div>
 
               {/* Legend */}
-              <div className="flex flex-col items-start justify-center gap-2.5">
+              <div className="flex flex-col sm:flex-row items-start justify-center gap-2.5">
                 <div className="flex items-center justify-center gap-2.5">
                   <div className="w-2.5 h-2.5 bg-app-primary rounded-[5px]" />
                   <div className="[font-family:'Outfit',Helvetica] font-semibold text-[#757575] text-base tracking-[0] leading-[normal]">
@@ -359,27 +359,27 @@ export const Analytics = (): JSX.Element => {
       {/* Benchmark Data Card */}
       <Card className="w-full border-[#e0e1e4] shadow-shadow">
         <CardContent className="p-7">
-          <div className="flex items-center justify-between w-full">
+          <div className="flex flex-col md:flex-row items-center justify-between w-full">
             <h2 className="[font-family:'Outfit',Helvetica] font-semibold text-app-primary text-xl tracking-[0] leading-[30.4px] whitespace-nowrap">
               Benchmark data
             </h2>
 
-            <div className="flex items-center gap-8">
-              <div className="flex items-center gap-[4.75px]">
+            <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8 w-full md:w-auto mt-4 md:mt-0">
+              <div className="flex items-center gap-[4.75px] w-full md:w-auto justify-center md:justify-start">
                 <div className="w-[18px] h-[18px] bg-[#d6a85c] rounded-[5px]" />
                 <div className="[font-family:'Outfit',Helvetica] font-normal text-x-80 text-base tracking-[0] leading-[26.6px] whitespace-nowrap">
                   Top 20% avg. in region
                 </div>
               </div>
 
-              <div className="flex items-center gap-[4.75px]">
+              <div className="flex items-center gap-[4.75px] w-full md:w-auto justify-center md:justify-start">
                 <div className="w-[18px] h-[18px] bg-[#52111e] rounded-[5px]" />
                 <div className="[font-family:'Outfit',Helvetica] font-normal text-x-80 text-base tracking-[0] leading-[26.6px] whitespace-nowrap">
                   Your stats
                 </div>
               </div>
 
-              <Button className="h-[38px] px-[11px] py-1.5 bg-app-primary rounded-lg border-[0.95px] border-solid border-[#52111e]">
+              <Button className="h-[38px] px-[11px] py-1.5 bg-app-primary rounded-lg border-[0.95px] border-solid border-[#52111e] w-full md:w-auto">
                 <span className="[font-family:'Outfit',Helvetica] font-semibold text-[#ffffff] text-base tracking-[0] leading-[19.0px] whitespace-nowrap">
                   View All
                 </span>
@@ -394,7 +394,7 @@ export const Analytics = (): JSX.Element => {
               {[275, 314, 232, 215, 189, 146, 104].map((top, index) => (
                 <img
                   key={`grid-line-${index}`}
-                  className="absolute w-[908px] h-px left-[117px]"
+                  className="absolute w-[calc(100%-122px)] h-px left-[117px]"
                   style={{ top: `${top}px` }}
                   alt={`Line ${index + 1}`}
                   src={top === 215 ? "/line-13.svg" : "/line-15.svg"}
@@ -416,7 +416,7 @@ export const Analytics = (): JSX.Element => {
               </div>
 
               {/* X-axis labels */}
-              <div className="flex w-[955px] items-center gap-[58.92px] absolute top-[319px] left-[77px]">
+              <div className="flex w-full items-center justify-between gap-[58.92px] absolute top-[319px] left-[77px]">
                 {benchmarkMonths.slice(0, 14).map((month, index) => (
                   <div
                     key={`benchmark-x-${index}`}
@@ -428,7 +428,7 @@ export const Analytics = (): JSX.Element => {
               </div>
 
               {/* Bar chart */}
-              <div className="flex w-[869px] h-72 items-end justify-between absolute top-[9px] left-[101px]">
+              <div className="flex w-[calc(100%-178px)] h-72 items-end justify-between absolute top-[9px] left-[101px]">
                 {/* Rendering 11 bar groups */}
                 {Array.from({ length: 11 }, (_, i) => (
                   <div
@@ -444,7 +444,7 @@ export const Analytics = (): JSX.Element => {
               </div>
 
               {/* Y-axis label */}
-              <div className="absolute top-32 left-[-88px] -rotate-90 [font-family:'Outfit',Helvetica] font-semibold text-slate-600 text-sm tracking-[-0.50px] leading-[18px] whitespace-nowrap">
+              <div className="absolute top-32 left-[-88px] -rotate-90 [font-family:'Outfit',Helvetica] font-semibold text-slate-600 text-sm tracking-[-0.50px] leading-[18px] whitespace-nowrap hidden md:block">
                 Average Time to Respond (hours)
               </div>
             </div>

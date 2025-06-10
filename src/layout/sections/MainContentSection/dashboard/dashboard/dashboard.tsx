@@ -17,6 +17,15 @@ import {
 import { TableCell } from "@/components/ui/table";
 import TableComponent from "@/components/custom/CustomTableComponent";
 
+interface RecentLog {
+  id: number;
+  name: string;
+  wine: string;
+  date: string;
+  lastActive: string;
+  avatar: string;
+}
+
 export const Dashboard = (): JSX.Element => {
   // Data for stats cards
 
@@ -99,10 +108,10 @@ export const Dashboard = (): JSX.Element => {
   ];
 
   const columns = [
-    { label: "Name", className: "w-[100px]" },
-    { label: "Date", className: "w-[100px]" },
-    { label: "Last Active", className: "w-[100px]" },
-    { label: "Active", className: "w-[100px]" },
+    { label: "Name", className: "" },
+    { label: "Date", className: "" },
+    { label: "Last Active", className: "" },
+    { label: "Active", className: "" },
   ];
 
   // Data for quick links cards
@@ -114,18 +123,12 @@ export const Dashboard = (): JSX.Element => {
   ];
 
   return (
-    <div
-      style={{ padding: "50px", paddingLeft: "30px", paddingRight: "30px" }}
-      className="flex flex-col w-full items-center justify-center gap-6 pt-0 pb-[46px] px-0 bg-[#ffffff]"
-    >
+    <div className="flex flex-col w-full items-center justify-center gap-6 py-8 px-4 md:px-[30px] bg-[#ffffff]">
       <div className="shadow-shadow w-full">
         {/* Welcome and VIP Alert Section */}
-        <div className="flex items-center justify-between relative self-stretch w-full flex-[0_0_auto]">
-          <Card
-            style={{ flex: "1", marginRight: "24px" }}
-            className="flex w-[685px] h-[211px] items-center justify-between px-5 py-8 relative bg-highlight rounded-lg overflow-hidden border border-solid border-[#2d2d2d]"
-          >
-            <CardContent className="flex flex-col w-[573px] items-start gap-6 relative p-0">
+        <div className="flex flex-col md:flex-row items-center justify-between relative self-stretch w-full flex-[0_0_auto] gap-4">
+          <Card className="flex w-full md:flex-1 md:h-[211px] items-center justify-between px-5 py-8 relative bg-highlight rounded-lg overflow-hidden border border-solid border-[#2d2d2d]">
+            <CardContent className="flex flex-col w-full items-start gap-6 relative p-0">
               <img
                 className="absolute w-[800px] h-[250px]"
                 alt="Goods for wine"
@@ -143,7 +146,7 @@ export const Dashboard = (): JSX.Element => {
                   Welcome back, Redgate Winery!
                 </h2>
 
-                <p className="relative w-[476px] font-medium text-white text-base tracking-[-0.32px] leading-[normal]">
+                <p className="relative w-full font-medium text-white text-base tracking-[-0.32px] leading-[normal]">
                   Here&#39;s a snapshot of how your wines are doing this week.
                 </p>
               </div>
@@ -157,10 +160,12 @@ export const Dashboard = (): JSX.Element => {
             />
           </Card>
 
-          <Card
-            style={{ width: "600px" }}
-            className="flex flex-col w-[411px] h-[211px] items-center justify-center relative rounded-lg overflow-hidden border border-solid border-[#52111e] [background:linear-gradient(180deg,rgba(186,47,75,1)_0%,rgba(105,34,49,1)_100%)]"
-          >
+          <Card className="flex flex-col w-full md:w-[540px] md:h-[211px] items-center justify-center relative rounded-lg overflow-visible border border-solid border-[#52111e] [background:linear-gradient(180deg,rgba(186,47,75,1)_0%,rgba(105,34,49,1)_100%)]">
+            <img
+              className="absolute w-[196px] h-[196px] -top-[80px] -left-[60px] object-cover z-10"
+              alt="Unnamed removebg"
+              src="/unnamed-removebg-preview-1.png"
+            />
             <CardContent className="flex flex-col w-[269px] items-center gap-[18px] relative flex-[0_0_auto] p-0">
               <h2 className="relative self-stretch mt-[-1.00px] font-semibold text-white text-2xl text-center tracking-[-0.48px] leading-[normal]">
                 VIP Alert
@@ -174,20 +179,7 @@ export const Dashboard = (): JSX.Element => {
                 Welcome them in!
               </Button>
             </CardContent>
-
-            <img
-              style={{ transform: "scale(2)" }}
-              className="absolute w-[1361px] h-[98px] bottom-[-50px] left-[0px]"
-              alt="Vector"
-              src="/vector.svg"
-            />
           </Card>
-
-          <img
-            className="absolute w-[196px] h-[196px] top-[-80px] left-[940px] object-cover"
-            alt="Unnamed removebg"
-            src="/unnamed-removebg-preview-1.png"
-          />
         </div>
 
         {/* Snapshot Stats Section */}
@@ -200,8 +192,8 @@ export const Dashboard = (): JSX.Element => {
               Snapshorts Stats
             </h3>
 
-            <div className="flex items-center justify-between relative self-stretch w-full flex-[0_0_auto] gap-4">
-              <Card className="flex w-full h-[120px] items-center justify-between p-4 bg-white rounded-lg border border-[#e0e1e4] shadow-shadow">
+            <div className="flex flex-wrap items-center justify-center relative self-stretch w-full flex-[0_0_auto] gap-4">
+              <Card className="flex w-full md:w-[calc(50%-8px)] lg:w-[calc(33.333%-10.67px)] h-[120px] items-center justify-between p-4 bg-white rounded-lg border border-[#e0e1e4] shadow-shadow">
                 {/* Icon and Text */}
                 <div className="flex items-center gap-3.5">
                   {/* Icon Circle */}
@@ -237,7 +229,7 @@ export const Dashboard = (): JSX.Element => {
                 </Badge>
               </Card>
 
-              <Card className="flex w-full h-[120px] items-center justify-between p-4 bg-white rounded-lg border border-[#e0e1e4] shadow-shadow">
+              <Card className="flex w-full md:w-[calc(50%-8px)] lg:w-[calc(33.333%-10.67px)] h-[120px] items-center justify-between p-4 bg-white rounded-lg border border-[#e0e1e4] shadow-shadow">
                 {/* Icon and Text */}
                 <div className="flex items-center gap-3.5">
                   {/* Icon Circle */}
@@ -273,7 +265,7 @@ export const Dashboard = (): JSX.Element => {
                 </Badge>
               </Card>
 
-              <Card className="flex w-full h-[120px] items-center justify-between p-4 bg-white rounded-lg border border-[#e0e1e4] shadow-shadow">
+              <Card className="flex w-full md:w-[calc(50%-8px)] lg:w-[calc(33.333%-10.67px)] h-[120px] items-center justify-between p-4 bg-white rounded-lg border border-[#e0e1e4] shadow-shadow">
                 {/* Icon and Text */}
                 <div className="flex items-center gap-3.5">
                   {/* Icon Circle */}
@@ -320,9 +312,9 @@ export const Dashboard = (): JSX.Element => {
               Quick Links
             </h3>
 
-            <div className="flex w-full items-start justify-between relative gap-4">
+            <div className="flex flex-wrap w-full items-start justify-center relative gap-4">
               {/* Respond to visitors card */}
-              <Card className="w-1/3 h-[220px] p-4 flex flex-col gap-4 rounded-lg border border-[#e0e1e4] shadow-shadow">
+              <Card className="w-full md:w-[calc(50%-8px)] lg:w-[calc(33.333%-10.67px)] h-[220px] p-4 flex flex-col gap-4 rounded-lg border border-[#e0e1e4] shadow-shadow">
                 {/* Header */}
                 <div className="flex justify-between items-start w-full">
                   {/* Title and Subtitle */}
@@ -396,7 +388,7 @@ export const Dashboard = (): JSX.Element => {
               </Card>
 
               {/* View Analytics card */}
-              <Card className="w-1/3 h-[220px] rounded-lg border border-[#e0e1e4] shadow-shadow bg-white p-4 flex flex-col items-center">
+              <Card className="w-full md:w-[calc(50%-8px)] lg:w-[calc(33.333%-10.67px)] h-[220px] rounded-lg border border-[#e0e1e4] shadow-shadow bg-white p-4 flex flex-col items-center">
                 {/* Header */}
                 <div className="flex justify-between items-start w-full">
                   {/* Title and Subtitle */}
@@ -474,7 +466,7 @@ export const Dashboard = (): JSX.Element => {
               </Card>
 
               {/* Manage wine Listing card */}
-              <Card className="w-1/3 h-[220px] p-4 flex flex-col gap-4 rounded-lg border border-[#e0e1e4] shadow-shadow">
+              <Card className="w-full md:w-[calc(50%-8px)] lg:w-[calc(33.333%-10.67px)] h-[220px] p-4 flex flex-col gap-4 rounded-lg border border-[#e0e1e4] shadow-shadow">
                 <div className="flex justify-between items-start w-full">
                   {/* Title and Subtitle */}
                   <div className="flex flex-col">
@@ -552,9 +544,9 @@ export const Dashboard = (): JSX.Element => {
                 columns={columns}
                 data={recentLogs}
                 withCheckbox
-                renderRow={(item) => (
+                renderRow={(item: RecentLog) => (
                   <>
-                    <TableCell className="border-r border-[#e8e8e8] w-[150px] px-4 py-3">
+                    <TableCell className="border-r border-[#e8e8e8] px-4 py-3">
                       <div className="flex items-center gap-3">
                         <Avatar className="w-10 h-10 overflow-hidden rounded-md">
                           <img
@@ -574,15 +566,15 @@ export const Dashboard = (): JSX.Element => {
                       </div>
                     </TableCell>
 
-                    <TableCell className="border-r border-[#e8e8e8] w-[200px] px-4 py-3 text-sm font-medium">
+                    <TableCell className="border-r border-[#e8e8e8] px-4 py-3 text-sm font-medium">
                       {item.date}
                     </TableCell>
 
-                    <TableCell className="border-r border-[#e8e8e8] w-[145px] px-4 py-3 text-sm font-medium text-[#52111e]">
+                    <TableCell className="border-r border-[#e8e8e8] px-4 py-3 text-sm font-medium text-[#52111e]">
                       {item.lastActive}
                     </TableCell>
 
-                    <TableCell className="w-[145px] px-4 py-3 text-sm font-medium text-[#52111e]">
+                    <TableCell className="px-4 py-3 text-sm font-medium text-[#52111e]">
                       <Button
                         variant="outline"
                         className="px-3 py-1 text-sm font-medium text-[#52111e] border border-[#52111e] rounded-md hover:bg-[#fdf2f4]"
