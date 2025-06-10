@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
-  FilterIcon,
   PlusIcon,
   ArchiveIcon,
   TrashIcon,
@@ -8,7 +7,8 @@ import {
   EditIcon,
   XCircleIcon,
 } from "lucide-react";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Avatar } from "@/components/ui/avatar";
+import { Card } from "@/components/ui/card";
 import {
   Table,
   TableHeader,
@@ -203,11 +203,13 @@ export const Marketplace = (): JSX.Element => {
                 </TableCell>
                 <TableCell className="h-[58px] px-5 py-[15px] border border-solid border-[#e0e1e4]">
                   <div className="flex items-center gap-[10px]">
-                    <img
-                      className="w-9 h-[46px] object-cover"
-                      alt="Wine bottle"
-                      src="/106880066-1620413243866petruswinebottle-jpg-4.png"
-                    />
+                    <Avatar className="w-10 h-10 overflow-hidden rounded-md">
+                      <img
+                        className="w-12 h-[46px] object-cover"
+                        alt="Wine bottle"
+                        src="/106880066-1620413243866petruswinebottle-jpg-4.png"
+                      />
+                    </Avatar>
                     <div className="flex items-start">
                       <span className="[font-family:'Outfit',Helvetica] font-medium text-[#02020e] text-[13.1px]">
                         Name
